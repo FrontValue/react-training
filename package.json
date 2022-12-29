@@ -14,6 +14,7 @@
     "format": "./node_modules/.bin/prettier --write .",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "docs": "docsify serve ./docs",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,7 +36,6 @@
     ]
   },
   "devDependencies": {
-    "react-scripts": "5.0.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -45,11 +45,13 @@
     "@types/react-dom": "^18.0.9",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
+    "docsify-cli": "^4.4.4",
     "eslint": "^8.30.0",
     "eslint-plugin-react": "^7.31.11",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
     "prettier": "^2.8.1",
+    "react-scripts": "5.0.1",
     "sass": "^1.57.1",
     "typescript": "^4.9.4"
   },
