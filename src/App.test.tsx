@@ -2,9 +2,12 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders the application', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/react/i);
+describe('<App />', () => {
+  it('it should mount', () => {
+    render(<App />);
 
-  expect(linkElement).toBeInTheDocument();
+    const app = screen.getByTestId('FVApp');
+
+    expect(app).toBeInTheDocument();
+  });
 });
