@@ -24,7 +24,7 @@ describe('<FVProduct />', () => {
   it('should render a rating', () => {
     render(<FVProduct {...productMock} />);
 
-    const ratingRender = render(<FVRating />);
+    const ratingRender = render(<FVRating {...productMock.rating} />);
     const rating = ratingRender.container.querySelector('.rating');
 
     expect(rating).toBeInTheDocument();

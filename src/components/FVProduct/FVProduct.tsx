@@ -5,7 +5,7 @@ import FVSquareImage from '../FVSquareImage';
 import FVRating from '../FVRating';
 
 const FVProduct = (props: FVProductProps) => {
-  const { title, price, description, category, image } = props;
+  const { title, price, description, category, image, rating } = props;
 
   return (
     <section className={classes.product} data-testid="FVProduct">
@@ -15,7 +15,7 @@ const FVProduct = (props: FVProductProps) => {
         <p className={classes.category}>{category}</p>
         <p className={classes.title}>{title}</p>
 
-        <FVRating />
+        <FVRating {...rating} />
 
         <p className={classes.description}>{description}</p>
         <p className={classes.price}>{price}</p>
