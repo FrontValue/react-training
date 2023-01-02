@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from './App.module.scss';
 import FVProductsList from './components/FVProductsList';
 import { Product } from './types/product';
+import FVSearch from './components/FVSearch';
+import { filterProducts } from './shared/product.filter';
 
 const App = () => {
-  const productsList: Product[] = [
+  const INITAL_PRODUCTS: Product[] = [
     {
       id: 1,
       title: 'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
@@ -30,8 +32,18 @@ const App = () => {
     }
   ];
 
+  const [productsList, setProductsList] = useState<Product[]>(INITAL_PRODUCTS);
+
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+
+    const filteredProducts = filterProducts([...INITAL_PRODUCTS], value);
+    setProductsList(filteredProducts);
+  };
+
   return (
     <div className={classes.app} data-testid="FVApp">
+      <FVSearch handleOnChange={handleOnChange} />
       <FVProductsList productsList={productsList} />
     </div>
   );
