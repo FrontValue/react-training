@@ -97,9 +97,14 @@ it('should render a square image with src and alt', () => {
 });
 ```
 
+Take a look at the resources below for more information on how to write tests.
+
 Resources:
 
 - [Component Testing Overview](https://reactjs.org/docs/testing.html)
 - [Running Tests](https://create-react-app.dev/docs/running-tests/)
+- [About Queries](https://testing-library.com/docs/queries/about/)
+- [toBeInTheDocument()](https://github.com/testing-library/jest-dom#tobeinthedocument)
+- [jestjs expect](https://jestjs.io/docs/expect)
 
 [Solution](https://github.com/FrontValue/react-training/compare/assignment-2...assignment-3)
