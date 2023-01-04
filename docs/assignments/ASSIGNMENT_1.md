@@ -9,12 +9,64 @@
 
 Place them into the `./src/types/` folder, it will make the project more structured and scalable
 
-## 1.2 Setting up components
+## 1.2 React components
+
+There are more ways than one to define a component in React.
+
+### Class Components
+
+In older versions of React, before version 16.8, Class components were the only way to track the state and lifecycle of a React component. Function components were considered 'state-less'.
+
+```javascript
+class FVProducst extends React.Component {
+  render() {
+    return <div>...</div>;
+  }
+}
+```
+
+### Functional Components
+
+With the addition of Hooks, Function components are now almost equivalent to Class components. The differences are so minor that you will probably never need to use a Class component in React.
+
+```javascript
+function FVProducst(props) {
+  return <>...</>;
+}
+
+// you can also use the arrow function syntax
+
+const FVProducst = (props) => {
+  return <>...</>;
+};
+
+// there is also an option to use React.FC syntax
+
+const FVProducst: React.FC<FVProducstProps> = () => {
+  return <>...</>;
+};
+```
+
+This course will use `Function Component` syntax with arrow functions because of simplicity.
+
+Resources:
+
+- [React Components](https://www.w3schools.com/react/react_components.asp)
+- [Components and Props](https://reactjs.org/docs/components-and-props.html)
+- [React Class Component](https://reactjs.org/docs/react-component.html)
+- [Using the Effect Hook](https://reactjs.org/docs/hooks-effect.html)
+- [Remove React.FC from Typescript template](https://github.com/facebook/create-react-app/pull/8177)
+
+## 1.3 Setting up components
 
 ![Products-Product](../assets/products-product.png)
 
-Create components `FVProductsList` and `FVProduct` in the folder `components`.Make separate files for style, test, types and detail.
+Create components `FVProductsList` and `FVProduct` in the folder `components`. Make separate files for style, test, types and detail.
+
 You can do it manually or you can use [generate-react-cli](https://github.com/arminbro/generate-react-cli)
+
+`generate-react-cli` may create a codebase that may differ from the one we use in this course.
+You can change that by setting up a `customTemplates` as explained in [github page](https://github.com/arminbro/generate-react-cli#custom-component-templates).
 
 In `App.tsx` import the component <FVProductsList />
 
@@ -50,35 +102,29 @@ return <>{JSON.stringify(product)}</>;
 
 ```html
 <section class="product">
-       
   <a>
-               
     <img
       class="square-image"
       src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
       alt="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
     />
-           
   </a>
-       
   <div class="info">
-               
     <p class="category">men's clothing</p>
-            <a class="title">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</a>        
+    <a class="title">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</a>
     <p class="rating">
-                  <span class="fa fa-star star"></span>      
-      <span class="fa fa-star star"></span>             <span class="fa fa-star star"></span>      
-      <span class="fa fa-star star"></span>             <span class="fa fa-star-o star"></span>    
-        <span class="count">(120)</span>        
+      <span class="fa fa-star star"></span>
+      <span class="fa fa-star star"></span>
+      <span class="fa fa-star star"></span>
+      <span class="fa fa-star star"></span>
+      <span class="fa fa-star-o star"></span>
+      <span class="count">(120)</span>
     </p>
-               
     <p class="description">
-                  Your perfect pack for everyday use and walks in the forest. Stash your laptop (up
-      to 15             inches) in the padded sleeve, your everyday        
+      Your perfect pack for everyday use and walks in the forest. Stash your
+      laptop (up to 15 inches) in the padded sleeve, your everyday
     </p>
-               
     <p class="price">109.95</p>
-           
   </div>
 </section>
 ```
@@ -95,7 +141,7 @@ Resources:
 
 You should have a working page with one product on the screen.
 
-## 1.3 More Components
+## 1.4 More Components
 
 ![product-html](../assets/product-html-components.png)
 
@@ -110,14 +156,14 @@ import { faStar, faStarHalfStroke } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons';
 
 // usage ...
-(<FontAwesomeIcon icon={faStarEmpty} />),
-  (<FontAwesomeIcon icon={faStarHalfStroke} />),
-  (<FontAwesomeIcon icon={faStar} />);
+<FontAwesomeIcon icon={faStarEmpty} />
+<FontAwesomeIcon icon={faStarHalfStroke} />
+<FontAwesomeIcon icon={faStar} />
 ```
 
 - Move the square image HTML to the `FVSquareImage` component, make sure it supports `[src]` + `[alt]` inputs and use it in the `FVProduct` component.
 
-## 1.4 List of products
+## 1.5 List of products
 
 ![Products-Product](../assets/products-product.png)
 
@@ -129,11 +175,9 @@ import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons';
   id: 2,
   title: 'Mens Casual Premium Slim Fit T-Shirts ',
   price: 22.3,
-  description:
-    'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck are made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.',
+  description: 'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck are made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.',
   category: "men's clothing",
-  image:
-    'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
+  image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
   rating: {
     rate: 4.1,
     count: 259,
@@ -159,7 +203,7 @@ Resources:
 
 You should see 2 different products on the screen.
 
-## 1.5 Styling
+## 1.6 Styling
 
 - Currently, all styling is globally registered in src/index.scss.
 

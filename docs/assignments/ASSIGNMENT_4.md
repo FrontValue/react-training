@@ -26,7 +26,7 @@ Let's create a home page.
 
 - Create a file 'ProductsOverview.tsx' component and place it in the `pages` folder
 - Now we have to decouple our app from all products related logic
-  - Move the template and implementation of the `App` component to the `ProductsOverview` component
+    - Move the template and implementation of the `App` component to the `ProductsOverview` component
 
 ## 4.4 Configuring routes and adding navigation
 
@@ -34,43 +34,43 @@ Let's create a home page.
 
 ```tsx
 const FVNavigation = () => {
-  const style = ({ isActive = false }) => ({
-    fontWeight: isActive ? 'bold' : 'normal'
-  });
+  const style = ({ isActive = false }) => ({
+    fontWeight: isActive ? 'bold' : 'normal'
+  });
 
-  return (
-    <>
-      <nav>
-        <NavLink to="/home" style={style}>
-          Home
-        </NavLink>
-        <NavLink to="/products-overview" style={style}>
-          Products overview
-        </NavLink>
-      </nav>
+  return (
+    <>
+      <nav>
+        <NavLink to="/home" style={style}>
+          Home
+        </NavLink>
+        <NavLink to="/products-overview" style={style}>
+          Products overview
+        </NavLink>
+      </nav>
 
-      <main>
-        <Outlet />
-      </main>
-    </>
-  );
+      <main>
+        <Outlet />
+      </main>
+    </>
+  );
 };
 
 const App = () => {
-  return (
-    <div className={classes.app}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<FVNavigation />}>
-            <Route index element={<HomePage />} />
-            <Route path="home" element={<HomePage />} />
+  return (
+    <div className={classes.app}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<FVNavigation />}>
+            <Route index element={<HomePage />} />
+            <Route path="home" element={<HomePage />} />
             <Route path="products-overview" element={<ProductsOverview />} />
             <Route path="*" element={<p>404!</p>} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
-  );
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 };
 ```
 
