@@ -11,7 +11,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "PORT=4000 react-scripts start",
     "lint": "eslint .",
     "check": "./node_modules/.bin/prettier --check .",
     "format": "./node_modules/.bin/prettier --write .",
